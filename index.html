@@ -618,7 +618,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.04;letter
     gsap.registerPlugin(ScrollTrigger);
 
     if (!reduced && window.Lenis){
-      const lenis = new Lenis({ duration:1.2, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true });
+      const lenis = new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
       gsap.ticker.add(t => lenis.raf(t*1000));
       gsap.ticker.lagSmoothing(0);
       lenis.on('scroll', ScrollTrigger.update);
